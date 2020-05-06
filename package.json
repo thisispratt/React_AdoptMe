@@ -1,0 +1,25 @@
+{
+  "name": "adoptme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint \"src/**/*.{js,jsx}\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thisispratt/Complete_React.git"
+  },
+  "author": "pratt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thisispratt/Complete_React/issues"
+  },
+  "homepage": "https://github.com/thisispratt/Complete_React#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "prettier": "^2.0.5"
+  }
+}
