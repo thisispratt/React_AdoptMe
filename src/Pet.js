@@ -1,16 +1,22 @@
 import React from "react";
 
-export default function Pet({ name, animal, breed }) {
-  /* return React.createElement("div", {}, [
-    React.createElement("h1", {}, name),
-    React.createElement("h2", {}, animal),
-    React.createElement("h2", {}, breed),
-  ]); */
+export default function Pet({ name, animal, breed, media, id }) {
+  let placeholderImage = "http://placecorgi.com/300/300";
+
+  if (media.length) {
+    placeholderImage = media[0]["small"];
+  }
+
   return (
-    <div>
-      <h1>{name}</h1>
-      <h2>{animal}</h2>
-      <h3>{breed}</h3>
-    </div>
+    //backtics `` are used to make template strings.
+    <a href={`/details/${id}`} className="pet">
+      <div className="image-container">
+        <img src={placeholderImage} alt={name} />
+      </div>
+      <div className="info">
+        <h1>{name}</h1>
+        <h2>{animal + " - " + breed}</h2>
+      </div>
+    </a>
   );
 }
