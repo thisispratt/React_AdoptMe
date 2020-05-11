@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import pet, { ANIMALS } from "@frontendmasters/pet";
 import Results from "./Results";
 import useDropdown from "./useDropdown";
+import ThemeContext from "./ThemeContext";
 
 const SearchParams = () => {
   //hooks always return an array with the basevalue and functiontochange the basevalue. NOTE: Hooks should always be in the order in which the components are rendered.
@@ -10,6 +11,7 @@ const SearchParams = () => {
   const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
   const [breed, BreedDropdown, setBreed] = useDropdown("Breed", "", breeds);
   const [pets, setPets] = useState([]);
+  const [theme, setTheme] = useContext(ThemeContext);
 
   async function requestPets() {
     const animalObj = await pet.animals({
@@ -52,7 +54,22 @@ const SearchParams = () => {
         </label>
         <AnimalDropdown />
         <BreedDropdown />
-        <button type="submit">SUBMIT</button>
+        <label htmlFor="theme">
+          Theme
+          <select
+            value={theme}
+            onChange={(event) => setTheme(event.target.value)}
+            onBlur={(event) => setTheme(event.target.value)}
+          >
+            <option value="darkblue">Dark Blue</option>
+            <option value="Peru">Peru</option>
+            <option value="mediumorchid">Medium Orchid</option>
+            <option value="chartreuse">Chartreuse</option>
+          </select>
+        </label>
+        <button type="submit" style={{ backgroundColor: theme }}>
+          SUBMIT
+        </button>
       </form>
       <Results pets={pets} />
     </div>

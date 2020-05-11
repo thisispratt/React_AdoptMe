@@ -2,6 +2,7 @@ import React from "react";
 import pet from "@frontendmasters/pet";
 import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBoundary";
+import ThemeContext from "./ThemeContext";
 
 //used to replace special html entities from the api response.(inside the description for animals)
 // const entities = {
@@ -48,7 +49,15 @@ class Details extends React.Component {
         <div>
           <h1>{name}</h1>
           <h2>{animal + " - " + breed + " - " + location}</h2>
-          <button>Adopt {name}</button>
+          {/* Using Context inside Class Components */}
+          <ThemeContext.Consumer>
+            {/*  Context consumer provides a function that gives the theme back, which can then be used. */}
+            {(themehook) => (
+              <button style={{ backgroundColor: themehook[0] }}>
+                Adopt {name}
+              </button>
+            )}
+          </ThemeContext.Consumer>
           <p>{description}</p>{" "}
           {/* {description.replace(/&#?\w+;/, (match) => entities[match])} */}
         </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "@reach/router";
 
 export default function Pet({ name, animal, breed, media, id }) {
   let placeholderImage = "http://placecorgi.com/300/300";
@@ -9,7 +10,7 @@ export default function Pet({ name, animal, breed, media, id }) {
 
   return (
     //backtics `` are used to make template strings.
-    <a href={`/details/${id}`} className="pet">
+    <Link to={`/details/${id}`} className="pet">
       <div className="image-container">
         <img src={placeholderImage} alt={name} />
       </div>
@@ -17,6 +18,6 @@ export default function Pet({ name, animal, breed, media, id }) {
         <h1>{name}</h1>
         <h2>{animal + " - " + breed}</h2>
       </div>
-    </a>
+    </Link>
   );
 }
