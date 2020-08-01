@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html",
     "dev:mock": "cross-env PET_MOCK=mock npm run dev",
     "lint": "eslint \"src/**/*.{js,jsx}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
